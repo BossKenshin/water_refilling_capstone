@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 06:20 PM
+-- Generation Time: Dec 04, 2022 at 04:29 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -37,6 +37,31 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `consumer`
+--
+
+CREATE TABLE `consumer` (
+  `consumer_id` int(11) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL,
+  `qrcode` varchar(255) NOT NULL,
+  `profile` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `consumer`
+--
+
+INSERT INTO `consumer` (`consumer_id`, `firstname`, `lastname`, `phone`, `address`, `user`, `pass`, `qrcode`, `profile`) VALUES
+(1, 'Kyle', 'Rosales', '09512412342', 'Siocon', 'dfdf', 'admin1', 'c1.png', 'Photo-1(3).jpeg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff`
 --
 
@@ -58,7 +83,9 @@ INSERT INTO `staff` (`staff_id`, `staff_firstname`, `staff_lastname`, `staff_use
 (7, 'Luke', 'Kelu', 'admin1', 'admin1', 'Photo-1(2).jpeg'),
 (8, 'Dees', 'Nuts', 'nuts', 'nuts', 'Photo-2(1).jpeg'),
 (11, 'Mother', 'Scuker', '232', 'admin1', '1075417.jpg'),
-(13, 'hdhgdhg', 'htdhgdf', '9ioioioi', 'admin1', 'undraw_mathematics_4otb.png');
+(13, 'hdhgdhg', 'htdhgdf', '9ioioioi', 'admin1', 'undraw_mathematics_4otb.png'),
+(15, 'fdfdf', 'dfd', '23241adfa', 'admin1', '1104327.jpg'),
+(16, 'asdfad', 'fadfd', 'fdfd', 'admin1', 'undraw_Usability_testing_re_uu1g.png');
 
 --
 -- Indexes for dumped tables
@@ -69,6 +96,14 @@ INSERT INTO `staff` (`staff_id`, `staff_firstname`, `staff_lastname`, `staff_use
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `consumer`
+--
+ALTER TABLE `consumer`
+  ADD PRIMARY KEY (`consumer_id`),
+  ADD UNIQUE KEY `user` (`user`),
+  ADD UNIQUE KEY `qrcode` (`qrcode`);
 
 --
 -- Indexes for table `staff`
@@ -88,10 +123,16 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `consumer`
+--
+ALTER TABLE `consumer`
+  MODIFY `consumer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

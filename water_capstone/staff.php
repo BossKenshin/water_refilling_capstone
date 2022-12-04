@@ -17,7 +17,7 @@
     <title>Staff</title>
 </head>
 
-<body style="overflow:hidden;">
+<body style="overflow-x:hidden;">
 
 
 <div class="modal fade" id="addemp" tabindex="-1">
@@ -82,20 +82,22 @@
 
 <div class="container-fluid m-3">
     <h1>Staffs</h1>
-    <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
+    <div class="container-fluid m-2 bg-white rounded" style="min-height: 80vh; max-height: fit-content;">
     <div class="dropdown p-3">
             <button class="btn btn-outline-secondary dropdown-toggle" id="btnopt" data-bs-toggle="dropdown"><i class="uil uil-cog icon"> </i>Options</button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addemp">Add Staff</a></li>
             </ul>
     </div>
-<div class="container-fluid m-3 row text-center" id="stafflist">
+<div class="container-fluid m-3 row text-center p-3" id="stafflist">
     <!-- loop ni ari bro -->
    
     <!-- hangtud ari -->
 </div>
 
 <script src="js/admin.js"></script>
+<script src="js/navi.js"></script>
+
 
 
 </body>

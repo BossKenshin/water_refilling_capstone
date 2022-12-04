@@ -8,10 +8,11 @@
     <!-- bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-
-
-    <!-- --- -->
+        <!-- --- -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 
     <link rel="stylesheet" href="css/staff.css">
 
@@ -20,8 +21,7 @@
 <body style="overflow:hidden;">
 
 
-
-<div class="modal fade" id="addemp" tabindex="-1">
+<div class="modal fade" id="addemp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -29,55 +29,75 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"  >First Name</label>
-                    <input type="email" class="form-control" id="fn">
+                    <label for="fn" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="fn">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" >Last Name</label>
-                    <input type="email" class="form-control" id="ln">
+                    <label for="ln" class="form-label">Last Name</label>
+                    <input type="text" class="form-control"  id="ln">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" >Address</label>
-                    <input type="email" class="form-control" id="address">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control"  id="phone"  maxlength="11" minlength="11" >
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" >Contact Number</label>
-                    <input type="email" class="form-control" id="contact">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control"  id="address">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" >Username</label>
-                    <input type="email" class="form-control" id="user">
+                    <label for="usr" class="form-label" >Username</label>
+                    <input type="text" class="form-control" id="usr">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" >Password</label>
-                    <input type="password" class="form-control" id="pass">
+                    <label for="psw" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="psw">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Profile Image</label>
-                    <input type="file" accept=".png, .jpeg, .jpg" class="form-control" id="profile-pic">
+                    <label for="profile" class="form-label">Profile Image</label>
+                    <input type="file" accept=".png, .jpeg, .jpg" class="form-control" id="profile">
                 </div>
+
+                <div class="mb-3" id="qrcode-2">
+                    
+                </div>
+
+
+                 <div class="mb-3">
+                    <button class="form-control btn btn-primary" id="btn-generate-qr" onclick="generateQRCode()">Generate QR Code</button>
+                </div>
+                <div class="mb-3">
+                    <label for="qrcode-img" class="form-label">QR Image</label>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" id="qrcode-img">
+                </div>
+               
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" id="btn-add-consumer" >Save</button>
             </div>
-            </form>
         </div>
     </div>
 </div>
 
 
-
 <?php include 'sidebar.php' ?>
 
-    <div id="qr-reader" style="width: 600px"></div>
+<template id="consumer-row-template">
 
+<tr id="consumer-row">
+                <td id="fullname">Christian Rosales</td>
+                <td id="number"> 6516310651</td>
+                <td id="caddress">Siocon</td>
+                <td id="usern">Consumer</td>
+                <td ><a class="btn btn-outline-secondary" >View</a></td>
+</tr>
+
+</template>
 
 <div class="container-fluid m-3">
     <h1>Consumers</h1>
-    <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
+    <div class="container-fluid m-2 bg-white rounded" id="this" style="height:70vh; overflow-x:scroll;">
     <div class="dropdown p-3">
             <button class="btn btn-outline-secondary dropdown-toggle" id="btnopt" data-bs-toggle="dropdown"><i class="uil uil-cog icon"> </i>Options</button>
             <ul class="dropdown-menu">
@@ -85,44 +105,34 @@
             </ul>
     </div>
 <div class="container-fluid m-3 row text-center">
-    <table class="table">
+    <table class="table" id="consumer-table">
         <thead>
             <tr>
                 <th>Consumer Name</th>
                 <th>Contact Number</th>
                 <th>Address</th>
                 <th>Username</th>
-                <th>Password</th>
+
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Christian Rosales</td>
-                <td>6516310651</td>
-                <td>Siocon</td>
-                <td>sample1</td>
-                <td>sample1</td>
-                <td><a class="btn btn-outline-secondary" href="#">View</a></td>
-            </tr>
+           
         </tbody>
 
     </table>
-
 </div>
 
 
-<script>function onScanSuccess(decodedText, decodedResult) {
-    console.log(`Code scanned = ${decodedText}`, decodedResult);
-}
-var html5QrcodeScanner = new Html5QrcodeScanner(
-	"qr-reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);</script>
-<script src="js/modals.js"></script>
+
 <script src="js/navi.js"></script>
+<script src="js/admin.consumer.js"></script>
 </body>
 </html>
 
-
-
-
+<style>
+    #this::-webkit-scrollbar
+    {
+        display: none;
+    }
+</style>
