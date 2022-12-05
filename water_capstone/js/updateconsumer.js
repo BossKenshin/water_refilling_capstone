@@ -25,9 +25,18 @@ function update()
     document.getElementById('imgi').removeAttribute("hidden");
     document.getElementById('qrimgl').removeAttribute("hidden");
     document.getElementById('qrimgi').removeAttribute("hidden");
+    document.getElementById('qrcode-2').removeAttribute("hidden");
+    document.getElementById('qrcode-2').innerHTML="";
+    document.getElementById('btn-generate-qr').removeAttribute("hidden");
+
+
+
+
 }
 function cancel()
 {
+    document.getElementById('qrcode-2').setAttribute("hidden",true);
+    document.getElementById('btn-generate-qr').setAttribute("hidden",true);
     document.getElementById('remove').removeAttribute("hidden");
     document.getElementById('fnamel').setAttribute("hidden", true);
     document.getElementById('lnamel').setAttribute("hidden", true);
@@ -54,5 +63,6 @@ function cancel()
     document.getElementById('imgi').setAttribute("hidden", true);
     document.getElementById('qrimgl').setAttribute("hidden", true);
     document.getElementById('qrimgi').setAttribute("hidden", true);
-    document.getElementById("form").reset();
+    $('#inputs').find('input').val('');    
+    loadConsumer();
 }
