@@ -1,0 +1,14 @@
+FOR getting on date or before due date bills
+
+SELECT  cid, dueDate, DATEDIFF(dueDate, 'todays Date') AS DateDiff  FROM `bill`
+INNER JOIN consumer ON bill.cid = consumer.consumer_id 
+WHERE dueDate <= 'todays Date' AND status ='pending';
+
+=============================================
+FOR getting past due date bills in days for penalty and inactive using DateDiff
+
+SELECT  cid, dueDate, DATEDIFF(dueDate, '2022-12-09') AS DateDiff  FROM `bill`
+INNER JOIN consumer ON bill.cid = consumer.consumer_id 
+WHERE dueDate >= 'todays Date' AND status ='pending';
+
+=============================================
