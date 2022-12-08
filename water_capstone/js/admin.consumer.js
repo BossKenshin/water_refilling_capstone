@@ -66,7 +66,6 @@ function generateQRCode() {
 
     var jsontext = JSON.stringify(json);
 
-    console.log(JSON.parse(jsontext));
     /*With some styles*/
     let qrcodeContainer2 = document.getElementById("qrcode-2");
 

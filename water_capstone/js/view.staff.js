@@ -27,11 +27,6 @@ function loadStaff(){
                 document.getElementById('uni').value = json[0].staff_username;
                 document.getElementById('pwi').value = json[0].staff_password;
 
-
-
-
-                console.log(json);
-
             }
 
 
