@@ -112,10 +112,10 @@
                 <label for="cname" class="form-label">Total:</label>
                 <input class="form-control" type="text" id="ctotalb"  disabled>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <label for="cname" class="form-label">Status</label>
                 <input class="form-control" type="text" id="cstatusb" value="pending" disabled >
-            </div>
+            </div> -->
         </div>
         </div>
     <div class="modal-footer">
@@ -136,7 +136,7 @@
 <div class="container-fluid m-3" >
     <div class="d-flex justify-content-between">
     <div class="container">
-        <h1>Billings</h1>
+        <h1>Create Billings</h1>
         <input class="form-control w-25" type="text" id="search" placeholder="Search name..." oninput="filterConsumer()" style="height:40px;">
     </div>
         <div class="dropdown me-4">
@@ -154,13 +154,13 @@
                 <td id="consumer-fullname1">Christian Rosales</td>
                 <td id="consumer-username1">Christian Rosales</td>
                 <td id="consumer-address1">Christian Rosales</td>
-                <td><button id="billing1-view"  type="button " class="btn " data-bs-toggle="modal" data-bs-target="#view" onclick="setBill(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"  ><i class="uil uil-eye icon"> View Bill</i></button></td>
-            </tr>
+                <td><button id="billing1-create" type="button " class="btn" data-bs-toggle="modal" data-bs-target="#cbill" onclick="setCID(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"><i class="uil uil-receipt icon"> Create Bill</i></button></td>
+    </tr>
 
     </template>
 
     <div class="container-fluid m-2 bg-white rounded" style="overflow-y: scroll; overflow-x:hidden; height: 65vh;">
-    <div class="container text-center"  style="overflow-y: scroll; overflow-x:hidden; min-height: 400px; max-height:600px;">
+    <div class="container text-center" >
     <table class="table" id="consumerBillingTable">
         <thead>
             <tr>
@@ -171,14 +171,17 @@
             </tr>
         </thead>
         <tbody>
+
+        
            
         </tbody>
 
     </table>
     </div>
+
 </div>
 
-<script src="js/billingstaff.js"></script>
+<script src="js/createbillingstaff.js"></script>
 
 </body>
 </html>

@@ -3,6 +3,8 @@ include '/xampp/htdocs/water_capstone/dbconnect.php';
 
 $typeOfFunction = $_POST['functionType'];
 
+$today = date('Y-m-d');
+
 
 if($typeOfFunction == 'insert'){
     $id = $_POST['id'];
@@ -46,7 +48,7 @@ else if($typeOfFunction == 'fetchBillCounter'){
    $id =  $_POST['id'];
 
 
-    $sql_get_bill = "SELECT * FROM bill WHERE cid = '$id' AND status = 'pending'";
+    $sql_get_bill = "SELECT `bill_id`,`cid`,`startDate`,`dueDate`,`cubic`,`total`,`status`,`payment_type`,`staff`, DATEDIFF('$today',dueDate) as days_penalty FROM bill WHERE cid = '$id' AND status = 'pending'";
 
     $result = mysqli_query($conn, $sql_get_bill);
 

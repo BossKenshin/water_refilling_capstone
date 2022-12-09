@@ -87,10 +87,10 @@ loadConsumer();
 function loadConsumer(){    
     $(document).ready(function() {
         $.ajax({
-            url: "./sql/admin.consumer.php",
+            url: "./sql/consumer.fetchbill.php",
             type: "POST",
             data:{
-                functionType: 'fetch'
+                functionType: 'onDateConsumer'
             },
             success: function(data) {
 
@@ -113,10 +113,6 @@ function loadConsumer(){
                     clone.querySelector("#billing1-view").dataset.id = json[i].id;
                     clone.querySelector("#billing1-view").dataset.fullname = json[i].fullname;
                     clone.querySelector("#billing1-view").dataset.address = json[i].address;
-
-                    clone.querySelector("#billing1-create").dataset.id = json[i].id;
-                    clone.querySelector("#billing1-create").dataset.fullname = json[i].fullname;
-                    clone.querySelector("#billing1-create").dataset.address = json[i].address;
                     clone.querySelector("#consumer-username1").innerHTML = json[i].user;
 
 
@@ -284,7 +280,7 @@ $('#btndeletebill').click(function(){
 
             swalWithBootstrapButtons.fire(
                 "Deleted!",
-                "The student data has been deleted.",
+                "Bill now deleted",
                 "success"
               );
     
@@ -335,6 +331,7 @@ $('#btnpaid').click(function (){
 
             
            $('#view').modal('hide');
+           loadConsumer();
 
         }
 

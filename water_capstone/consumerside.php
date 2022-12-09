@@ -16,41 +16,21 @@
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="staff.php" class="nav-link">
+              <a href="cdashboard.php" class="nav-link">
               <i class="uil uil-dashboard icon"></i>
-
                 <span class="link">Dashboard</span>
               </a>
             </li>
             <li class="list">
-              <a href="createbill.php" class="nav-link">
-                <i class="uil uil-receipt icon"></i>
-                <span class="link">Create Billings</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="billingstaff.php" class="nav-link">
+              <a href="cbillings.php" class="nav-link">
                   <i class="uil uil-analysis icon"></i>
                 <span class="link">Billings</span>
               </a>
             </li>
-           
             <li class="list">
-              <a href="onlinebills.php" class="nav-link">
-                <i class="uil uil-receipt icon"></i>
-                <span class="link">Online Payments</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="staffpenalty.php" class="nav-link">
-              <i class="uil uil-user-exclamation icon"></i>
-                <span class="link">Penalty Accouts</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="inactives.php" class="nav-link">
-              <i class="uil uil-user-times icon"></i>
-                <span class="link">Inactive Accounts</span>
+              <a href="cbillinghistory.php" class="nav-link">
+                <i class="uil uil-history icon"></i></i>
+                <span class="link">Billing History</span>
               </a>
             </li>
           </ul>
@@ -78,8 +58,8 @@
           navBar.classList.toggle("open");
         });
       });
+
       overlay.addEventListener("click", () => {
         navBar.classList.remove("open");
       });
-      
 </script>

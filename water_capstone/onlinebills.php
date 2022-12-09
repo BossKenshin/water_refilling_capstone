@@ -18,7 +18,7 @@
 
 
 <div class="modal fade" id="view" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
         
         <div class="modal-body">
@@ -64,10 +64,12 @@
                             <option value="2">Over the Counter</option>
                         </select>
             </div>
+            <div class="text-center">
+                <a href="#" id="seeproof"><img src="img/nopicture.jpg" alt="" style="width:250px;"></a>
+            </div>
         </div>
         <div class="row mb-3">
         <button type="button" class="btn btn-secondary" id="genrec" onclick="rece()" >Generate Receipt</button>
-
         </div>
         </div>
     <div class="modal-footer">
@@ -79,64 +81,12 @@
     </div>
 </div>
 
-
-<div class="modal fade" id="cbill" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-body">
-        
-        <div class="mb-3">
-                <label for="cname" class="form-label">Name</label>
-                <input class="form-control" type="text" id="cnameb" value="Christian Rosales" disabled>
-        </div>
-        <div class="mb-3">
-                <label for="cname" class="form-label">Address</label>
-                <input class="form-control" type="text" id="caddb" value="Siocon, Nailon, Bogo City" disabled>
-        </div>
-        <div class="mb-3 row">
-            <div class="col">
-                <label for="cname" class="form-label">From Date:</label>
-                <input class="form-control" type="date" id="cfromdateb" >
-            </div>
-            <div class="col">
-                <label for="cname" class="form-label">To Date:</label>
-                <input class="form-control" type="date" id="ctodateb">
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <div class="col">
-                <label for="cname" class="form-label"  >m³ used:</label>
-                <input class="form-control" type="text" id="ccubicsb" oninput="getotal()" >
-            </div>
-            <div class="col">
-                <label for="cname" class="form-label">Total:</label>
-                <input class="form-control" type="text" id="ctotalb"  disabled>
-            </div>
-            <div class="col">
-                <label for="cname" class="form-label">Status</label>
-                <input class="form-control" type="text" id="cstatusb" value="pending" disabled >
-            </div>
-        </div>
-        </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" id="btnbill" >Create Bill</button>
-    </div>
-    </div>
-    </div>
-</div>
-
-
 <?php include 'staffside.php' ?>
-
-    
-   
-
 
 <div class="container-fluid m-3" >
     <div class="d-flex justify-content-between">
     <div class="container">
-        <h1>Billings</h1>
+        <h1>Online Payments</h1>
         <input class="form-control w-25" type="text" id="search" placeholder="Search name..." oninput="filterConsumer()" style="height:40px;">
     </div>
         <div class="dropdown me-4">
@@ -155,13 +105,14 @@
                 <td id="consumer-username1">Christian Rosales</td>
                 <td id="consumer-address1">Christian Rosales</td>
                 <td><button id="billing1-view"  type="button " class="btn " data-bs-toggle="modal" data-bs-target="#view" onclick="setBill(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"  ><i class="uil uil-eye icon"> View Bill</i></button></td>
+                <td><button id="billing1-create" type="button " class="btn" data-bs-toggle="modal" data-bs-target="#cbill" onclick="setCID(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"><i class="uil uil-receipt icon"> Create Bill</i></button></td>
             </tr>
 
     </template>
 
     <div class="container-fluid m-2 bg-white rounded" style="overflow-y: scroll; overflow-x:hidden; height: 65vh;">
     <div class="container text-center"  style="overflow-y: scroll; overflow-x:hidden; min-height: 400px; max-height:600px;">
-    <table class="table" id="consumerBillingTable">
+    <table class="table">
         <thead>
             <tr>
                 <th>Consumer Name</th>
@@ -171,9 +122,12 @@
             </tr>
         </thead>
         <tbody>
-           
+            <tr>
+                <td>1</td>
+                <td>Christian Rosales</td>
+                <td><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#view"><i class="uil uil-eye icon"> View</i></button></td>
+            </tr>
         </tbody>
-
     </table>
     </div>
 </div>
