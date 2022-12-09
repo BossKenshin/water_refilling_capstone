@@ -17,7 +17,7 @@ function rece(){
           "&total="+
           encodeURI(total)+
           "&staff="+
-          encodeURI('Kyle Jenner')
+          encodeURI(staffname)
       );
 
 
@@ -179,7 +179,7 @@ $('#btnbill').click(function(){
                 cubic: _cubic,
                 total: _total,
                 id: consumer_id,
-                staff: 'Kylie'
+                staff: staffname
             },
             success: function(data) {
 

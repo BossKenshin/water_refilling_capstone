@@ -127,6 +127,8 @@
 
 <script src="js/navi.js"></script>
 <script src="js/admin.consumer.js"></script>
+<script src="js/profileadmin.js"></script>
+
 </body>
 </html>
 

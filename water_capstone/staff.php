@@ -97,6 +97,7 @@
 
 <script src="js/admin.js"></script>
 <script src="js/navi.js"></script>
+<script src="js/profileadmin.js"></script>
 
 
 

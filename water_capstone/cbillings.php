@@ -11,11 +11,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <!-- --- -->
     <link rel="stylesheet" href="css/staff.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Consumers| Bills</title>
 </head>
 
-<body style="overflow:hidden;">
+<body style="overflow-x:hidden;">
     <?php include 'consumerside.php' ?>
 
 
@@ -25,14 +29,11 @@
             <h1>Billings</h1>
             <div class="dropdown me-4">
                 <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="img/nopicture.jpg" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
-                </a>
-                <ul class="dropdown-menu">
-
-
-
-                    <li><a class="dropdown-item" href="#">Log Out</a></li>
-                </ul>
+                <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
+        </a>
+            <ul class="dropdown-menu">
+              <li><button class="btn dropdown-item" id="alogout">Log Out</button></li>
+            </ul>
             </div>
         </div>
 
@@ -41,32 +42,42 @@
 
         <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
             <div class="row pe-3">
-                <div class="col-6" id="qr">
-                    <button class="btn btn-success mt-2">Scan QR</button>
-                    <div class="qrscanner mt-3" style="width:100%; height:100%;"></div>
+                <div class="col-4" id="qr">
+                    <button class="btn btn-success mt-2" id="btn-show-scanner">Scan your QR code: to see bill</button>
+                    <div class="mt-3" style="width:100%; height:250px" id="reader"></div>
+
                 </div>
-                <div class="col-6">
-                    <table class="table">
+                <div class="col-8">
+
+              
+                    <table class="table" id="billTable">
                         <thead>
                             <tr>
                                 <th>Date From:</th>
                                 <th>Date To:</th>
                                 <th>m³ used</th>
                                 <th>Amount</th>
+                                <th>Days Penalty(<i>50 per day</i>)</th>
+                                <th>Total</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>10-12-22</td>
-                                <td>10-13-22</td>
-                                <td>1982</td>
-                                <td>5000</td>
-                            </tr>
+                        <tr>
+
+                                <td id="start"></td>
+                                <td id="due"></td>
+                                <td id="cubic"></td>
+                                <td id="amount"></td>
+                                <td id="days"></td>
+                                <td id="total"></td>
+                                </tr>
+
                         </tbody>
                     </table>
                     <div class="text-center">
                         <img src="img/qrcode.png" alt="" style="width:250px;">
-                        <p style="font-size:10px;">Scan This QR to Pay through GCASH</p>
+                        <p style="font-size:15px;">Scan This QR to Pay through GCASH</p>
                     </div>
                     <div class="center text-end">
                         
@@ -89,20 +100,20 @@
                 <div class="modal-body">
                     <input type="file"  accept="image/png, image/jpeg, image/jpg" class="form-control mb-3" id="proof">
                     <div class="text-center">
-                        <img src="img/receipt.jpg" alt="receipt" id="receipt" style="width:300px;">
+                        <img alt="receipt" id="receipt" style="width:300px;">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Submit Proof</button>
+                    <button type="button" class="btn btn-success" id="submit-proof">Submit Proof</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="js/cbillings.js"> </script>
+    <script src="js/profileconsumer.js"></script>
 
-        <script src="js/modals.js"></script>
-        <script src="js/navi.js"></script>
 </body>
 
 </html>

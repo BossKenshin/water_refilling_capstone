@@ -77,7 +77,7 @@ $('#btnbill').click(function(){
                 cubic: _cubic,
                 total: _total,
                 id: consumer_id,
-                staff: 'Kylie'
+                staff: staffname
             },
             success: function(data) {
 

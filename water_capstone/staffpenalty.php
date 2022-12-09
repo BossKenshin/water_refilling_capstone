@@ -107,11 +107,11 @@
             </div>
             <div class="dropdown me-4">
                 <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="img/nopicture.jpg" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Log Out</a></li>
-                </ul>
+                <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
+        </a>
+            <ul class="dropdown-menu">
+              <li><button class="btn dropdown-item" id="alogout">Log Out</button></li>
+            </ul>
             </div>
         </div>
 
@@ -146,6 +146,8 @@
 
 
         <script src="js/penalty.js"></script>
+        <script src="js/profilestaff.js"></script>
+
 </body>
 
 </html>

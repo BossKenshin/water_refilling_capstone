@@ -65,7 +65,7 @@ function rece(){
           "&total="+
           encodeURI(total +" with fee")+
           "&staff="+
-          encodeURI('Kyle Jenner')
+          encodeURI(staffname)
       );
 }
 

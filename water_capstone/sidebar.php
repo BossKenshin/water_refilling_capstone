@@ -36,10 +36,10 @@
           </ul>
           <div class="bottom-cotent">
             <li class="list">
-              <a href="#" class="nav-link">
+              <button class="btn nav-link" id="alogout">
                 <i class="bx bx-log-out icon"></i>
-                <span class="link">Logout</span>
-              </a>
+                <span class="link" >Logout</span>
+              </button>
             </li>
           </div>
         </div>
