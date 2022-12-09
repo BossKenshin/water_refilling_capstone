@@ -12,3 +12,17 @@ INNER JOIN consumer ON bill.cid = consumer.consumer_id
 WHERE dueDate >= 'todays Date' AND status ='pending';
 
 =============================================
+
+
+SELECT `dueDate`,'2020-12-09' as today, DATEDIFF('2022-12-09',dueDate) as diff,
+(
+    CASE 
+    WHEN DATEDIFF('2022-12-09',dueDate) <= 0 THEN 'no penalty'
+    WHEN DATEDIFF('2022-12-09',dueDate) >= 1 && DATEDIFF('2022-12-09',dueDate) < 30 THEN 'penalty'
+    WHEN DATEDIFF('2022-12-09',dueDate) >= 1 && DATEDIFF('2022-12-09',dueDate) >= 30 THEN 'inactive'
+
+    ELSE 'no penalty'
+    END) AS account_status
+FROM bill
+INNER JOIN consumer ON bill.cid = consumer.consumer_id
+WHERE status = 'pending'
