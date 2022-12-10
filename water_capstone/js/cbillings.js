@@ -131,9 +131,8 @@ imgin.onchange = evt => {
 
     var plen = $('#proof').get(0).files.length;
     var bid =  document.getElementById('submit-proof').getAttribute('data-billid');
-    var rowCount = $('#billTable tbody tr #start').val();
+    var rowCount = $('#billTable tbody tr #start').text();
 
-    if(rowCount != ''){
     if(plen != 0 && bid != undefined || bid != null ){
 
             var filename =  $('#proof').prop('files')[0];    //Fetch the file
@@ -181,20 +180,11 @@ imgin.onchange = evt => {
             text: "If error keeps showing please log in again"
           });  
     }
-  }
-  else{
-    Swal.fire({
-      icon: "error",
-      title: "Please scan your QR code for bill",
-      text: "If error keeps showing please log in again"
-    });  
-  }
-
-
+  
     $('#paymentproof').modal('hide');
     document.getElementById('proof').value = '';
     blah.src ='';
-
+    $('#billTable tbody tr #start').text('');
 
 
   })

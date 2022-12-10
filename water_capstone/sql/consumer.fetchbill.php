@@ -59,7 +59,7 @@ $today = date("Y-m-d");
         $fetch = "SELECT  consumer_id as id, CONCAT(firstname,' ',lastname) as fullname, phone, address, user,cid, dueDate, DATEDIFF('$today',dueDate) as datediff,proof_filename FROM `payment_proof`
         INNER JOIN bill ON payment_proof.bill_id = bill.bill_id
         INNER JOIN consumer ON bill.cid = consumer.consumer_id 
-        WHERE  '$today' > dueDate AND status ='toConfirm';";
+        WHERE status ='toConfirm';";
     
     $res = mysqli_query($conn, $fetch);
     

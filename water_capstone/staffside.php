@@ -5,12 +5,12 @@
     <nav id="sidebar">
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Name sa system</span>
+        <span class="logo-name">Online Water Consumer and Services System</span>
       </div>
       <div class="sidebar">
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Name sa system</span>
+          <span class="logo-name">OWC&SS</span>
         </div>
 
         <div class="sidebar-content">

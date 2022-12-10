@@ -44,6 +44,8 @@
             <div class="row pe-3">
                 <div class="col-4" id="qr">
                     <button class="btn btn-success mt-2" id="btn-show-scanner">Scan your QR code: to see bill</button>
+                    <a class="text-decoration-underline" download id="myqr" >My QR Code</a>
+
                     <div class="mt-3" style="width:100%; height:250px" id="reader"></div>
 
                 </div>
@@ -76,7 +78,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <img src="img/qrcode.png" alt="" style="width:250px;">
+                        <img src="./bg/GKI-GCash-QR-Code.png" alt="" style="width:250px;">
                         <p style="font-size:15px;">Scan This QR to Pay through GCASH</p>
                     </div>
                     <div class="center text-end">
@@ -113,6 +115,36 @@
 
     <script src="js/cbillings.js"> </script>
     <script src="js/profileconsumer.js"></script>
+    <script>
+        var consumerid = localStorage.getItem('consumerid');
+var consumer_user;
+
+
+
+if(consumerid == null  ){
+           window.location.replace('./index.html');
+}
+
+setProfile();
+
+function setProfile(){
+    $.ajax({
+        url: "./sql/fetch.profile.php",
+        data: {
+            typeAcc: 'consumer',
+            id: consumerid
+        },
+        success: function (data) {
+
+            var profiledata = JSON.parse(data);
+
+            // ele.setAttribute('src', './profile/'+profiledata[0].staff_pic)
+            $("#myqr").attr("href",'./qrcode/'+profiledata[0].qrcode);
+
+        }
+    })
+}
+    </script>
 
 </body>
 

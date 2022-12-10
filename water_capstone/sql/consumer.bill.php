@@ -2,6 +2,7 @@
 include '/xampp/htdocs/water_capstone/dbconnect.php';
 
 $typeOfFunction = $_POST['functionType'];
+$today = date('Y-m-d');
 
 
 if($typeOfFunction == 'fetchbill'){
@@ -10,14 +11,14 @@ if($typeOfFunction == 'fetchbill'){
 
 
     $getbill = "
-    SELECT bill_id,startDate,`dueDate`,cubic,total, DATEDIFF('2022-12-09',dueDate) as diff
+    SELECT bill_id,startDate,`dueDate`,cubic,total, DATEDIFF('$today ',dueDate) as diff
     FROM bill
     INNER JOIN consumer ON bill.cid = consumer.consumer_id
     WHERE status = 'pending' AND (
         CASE 
-        WHEN DATEDIFF('2022-12-09',dueDate) <= 0 THEN 'no penalty'
-        WHEN DATEDIFF('2022-12-09',dueDate) >= 1 && DATEDIFF('2022-12-09',dueDate) < 30 THEN 'penalty'
-        WHEN DATEDIFF('2022-12-09',dueDate) >= 1 && DATEDIFF('2022-12-09',dueDate) >= 30 THEN 'inactive'
+        WHEN DATEDIFF('$today',dueDate) <= 0 THEN 'no penalty'
+        WHEN DATEDIFF('$today',dueDate) >= 1 && DATEDIFF('$today',dueDate) < 30 THEN 'penalty'
+        WHEN DATEDIFF('$today',dueDate) >= 1 && DATEDIFF('$today',dueDate) >= 30 THEN 'inactive'
     
         ELSE 'no penalty'
         END) != 'inactive' AND user = '$user';";
@@ -43,7 +44,7 @@ else if($typeOfFunction == 'paybillonline'){
     $bill_id = $_POST['bid'];
 
 
-    $paybill = "UPDATE bill SET payment_type = 'Online', status = 'toconfirm' WHERE bill_id = '$bill_id'";
+    $paybill = "UPDATE bill SET payment_type = 'Online', status = 'toConfirm' WHERE bill_id = '$bill_id'";
     $setproof = "INSERT INTO `payment_proof`( `bill_id`, `proof_filename`) 
     VALUES ('$bill_id','$proof')";
 
@@ -65,9 +66,15 @@ else if($typeOfFunction == 'history'){
     $user = $_POST['user'];
 
 
-    $getbillhistory = "SELECT `startDate`,`dueDate`,`cubic`,`total` FROM `bill`
-    INNER JOIN consumer ON bill.cid = consumer.consumer_id 
-    WHERE user = '$user' AND status = 'paid' ORDER BY dueDate DESC";
+    $getbillhistory = "SELECT `startDate`,`dueDate`,`cubic`,`total`,payment_type,
+    (CASE 
+            WHEN payment_type = 'Online' THEN bill_receipt.receipt_file          
+             WHEN payment_type = 'Over the Counter' THEN 'NONE'  
+     END
+      ) AS receipts FROM `bill`
+        INNER JOIN consumer ON bill.cid = consumer.consumer_id 
+        LEFT JOIN bill_receipt ON bill.bill_id = bill_receipt.bill_id
+        WHERE user = '$user' AND status = 'paid' ORDER BY dueDate DESC";
 
         $res = mysqli_query($conn, $getbillhistory);
     

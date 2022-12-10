@@ -34,12 +34,12 @@ if(value != undefined && user != '' && pass != ''){
 
                     if(json[0].acctype == "admin"){
                         localStorage.setItem('adminid', json[0].admin_id);
-                        window.location.href = "staff.php"
+                        window.location.href = "admin.php"
                     }
                     else if(json[0].acctype == "staff"){
 
                         localStorage.setItem('staffid', json[0].staff_id);
-                        window.location.href = "billingstaff.php"
+                        window.location.href = "sdashboard.php"
                     }
                     else{
                         localStorage.setItem('consumerid', json[0].consumer_id);

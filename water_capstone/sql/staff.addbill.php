@@ -74,7 +74,7 @@ else if($typeOfFunction == 'fetchOnlineBill'){
      $sql_get_bill = "SELECT  consumer_id as id, bill.bill_id as bid ,CONCAT(firstname,' ',lastname) as fullname, phone, address, user,cid,`startDate`,`dueDate`,`cubic`,`total`,`status`, DATEDIFF('$today',dueDate) as days_penalty, proof_filename FROM `payment_proof`
      INNER JOIN bill ON payment_proof.bill_id = bill.bill_id
      INNER JOIN consumer ON bill.cid = consumer.consumer_id 
-     WHERE  '$today' > dueDate AND status ='toConfirm' AND cid = '$id'";
+     WHERE status ='toConfirm' AND cid = '$id'";
  
      $result = mysqli_query($conn, $sql_get_bill);
  
@@ -146,7 +146,7 @@ else if($typeOfFunction == 'delete'){
 
     $id =  $_POST['id'];
 
-    $delete_bill ="DELETE FROM bill WHERE cid = '$id' and status = 'pending'";
+    $delete_bill ="DELETE FROM bill WHERE cid = '$id' and status = 'pending' OR status = 'toConfirm' ";
 
     $result = mysqli_query($conn, $delete_bill);
 

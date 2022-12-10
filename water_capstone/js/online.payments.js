@@ -48,7 +48,7 @@ function loadConsumer() {
 
 
 
-function setBill(id, name, add){
+function setBill(id, name, add, mo){
     consumer_id = id;
 
     document.getElementById('btnpaid').setAttribute('disabled', true);
@@ -68,7 +68,6 @@ function setBill(id, name, add){
 
             var json = JSON.parse(data);
 
-            console.log(data);
 
 
             if(json.length != 0){
@@ -200,3 +199,53 @@ else{
 
 
   });
+
+
+  
+$("#btndeletebill").click(function () {
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger",
+    },
+    buttonsStyling: false,
+  });
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: "./sql/staff.addbill.php",
+        dataType: "script",
+        type: "POST",
+        data: {
+          id: consumer_id,
+          functionType: "delete",
+        },
+      }).done(function (data) {
+        if (data == 0) {
+          loadConsumer();
+
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Bill now deleted",
+            "success"
+          );
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Deleting bill error",
+            text: "Encountered some error",
+          });
+        }
+      });
+    }
+  });
+});

@@ -43,6 +43,8 @@
                 <th>Date to</th>
                 <th>m³ used</th>
                 <th>Amount</th>
+                <th>Payment Type</th>
+                <th>Receipt</th>
             </tr>
         </thead>
         <tbody>

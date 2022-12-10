@@ -25,7 +25,7 @@
 
     <div class="container-fluid m-3">
         <div class="d-flex justify-content-between">
-            <h1 style="color:white;">Dashboard</h1>
+            <h1 style="color:white;">Staff Dashboard</h1>
             <div class="dropdown me-4">
                 <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
@@ -37,25 +37,25 @@
         </div>
 
         <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
-            <h1 class="p-3">Welcome, Christian Rosales</h1>
+            <h1 class="p-3">Welcome,</h1>
             <hr>
             <div class="container-fluid d-flex justify-content-center">
                 <div class="container col-4" id="nobra">
                     <div class="d-flex">
                         <div class="circle rounded"></div>
-                        <h5><label class="h1">22836</label>Paid Consumers</h5>
+                        <h5><label class="h1" id="consumernum">22836</label>Consumers</h5>
                     </div>
                 </div>
                 <div class="container col-4" id="nobra">
                     <div class="d-flex">
                         <div class="circle rounded"></div>
-                        <h5><label class="h1">22836</label>Penalty Accounts</h5>
+                        <h5><label class="h1" id="penaltynum">22836</label>Penalty Accounts</h5>
                     </div>
                 </div>
                 <div class="container col-4" id="nobra">
                     <div class="d-flex">
                         <div class="circle rounded"></div>
-                        <h5><label class="h1">22836</label>Inactive Accounts</h5>
+                        <h5><label class="h1"id="inactivenum">22836</label>Inactive Accounts</h5>
                     </div>
                 </div>
             </div>
@@ -64,6 +64,90 @@
 
 
        <script src="js/profilestaff.js"></script>
+       <script>
+        
+        loadInactive();
+loadConsumerNum();
+loadPenaltyNum();
+
+function loadInactive(){
+
+$(document).ready(function() {
+    $.ajax({
+        url: "./sql/staff.dashboard.sql.php",
+        type: "GET",
+        data:{
+            functionType: 'inactive'        
+        },
+
+        success: function(data) {
+
+            var json = JSON.parse(data);
+
+            document.getElementById('inactivenum').innerHTML = json[0].sum;
+
+        }
+
+
+    })
+
+});
+}
+
+
+
+
+function loadConsumerNum(){
+
+$(document).ready(function() {
+    $.ajax({
+        url: "./sql/staff.dashboard.sql.php",
+        type: "GET",
+        data:{
+            functionType: 'consumer'        
+        },
+
+        success: function(data) {
+
+            var json = JSON.parse(data);
+
+            document.getElementById('consumernum').innerHTML = json[0].sum;
+
+        }
+
+
+    })
+
+});
+}
+
+
+
+function loadPenaltyNum(){
+
+$(document).ready(function() {
+    $.ajax({
+        url: "./sql/staff.dashboard.sql.php",
+        type: "GET",
+        data:{
+            functionType: 'penalty'        
+        },
+
+        success: function(data) {
+
+            var json = JSON.parse(data);
+
+            document.getElementById('penaltynum').innerHTML = json[0].sum;
+
+        }
+
+
+    })
+
+});
+}
+
+       </script>
 </body>
 
 </html>

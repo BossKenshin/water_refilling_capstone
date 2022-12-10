@@ -13,20 +13,10 @@
 
 </head>
 <body style="overflow:hidden;">
-<?php
-include 'staffside.php';
-?>
+
 <div class="container-fluid m-3">
     <div class="d-flex justify-content-between" id="top">
         <h1>Reciept</h1>
-        <div class="dropdown me-4">
-        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="img/nopicture.jpg" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
-        </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Log Out</a></li>
-            </ul>
-        </div>
     </div>
 <div class="container0-fluid p-0" id="maindashboard">
         <div class="container1-fluid">

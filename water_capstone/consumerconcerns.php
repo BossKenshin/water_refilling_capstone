@@ -18,11 +18,6 @@
 
 <body style="overflow:hidden;">
     <?php include 'consumerside.php' ?>
-
-
-
-
-
     <div class="container-fluid m-3">
         <div class="d-flex justify-content-between">
             <h1 style="color:white;">Concerns</h1>
@@ -43,14 +38,13 @@
             </div>
         </template>
 
+        
+
         <div class="container-fluid m-2 bg-white rounded " style="height:70vh;">
-            <div class="container bg-white p-2 " id="messages" style="width: 500px; height:85%; overflow-y:scroll; display: block;">
-
-
-
+            <div class="container bg-white p-2 shadow" id="messages" style="width: 500px; height:85%; overflow-y:scroll; display: block;">
 
             </div>
-            <div class="container d-flex mt-1 p-2" style="width: 500px;  background-color:whitesmoke;">
+            <div class="container d-flex mt-1 p-2 " style="width: 500px;  background-color:whitesmoke;">
                 <label class="custom-file-upload">
                     <input type="file" accept="image/png, image/jpg, image/jpeg" id="imgfile" />
                     <i class="uil uil-file" style="font-size:30px; margin-right:20px;"></i>
