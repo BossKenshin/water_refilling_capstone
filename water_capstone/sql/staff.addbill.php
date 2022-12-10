@@ -43,6 +43,7 @@ if($typeOfFunction == 'insert'){
    
 
 }
+
 else if($typeOfFunction == 'fetchBillCounter'){
 
    $id =  $_POST['id'];
@@ -64,6 +65,32 @@ else if($typeOfFunction == 'fetchBillCounter'){
 
 
 }
+
+else if($typeOfFunction == 'fetchOnlineBill'){
+
+    $id =  $_POST['id'];
+ 
+ 
+     $sql_get_bill = "SELECT  consumer_id as id, bill.bill_id as bid ,CONCAT(firstname,' ',lastname) as fullname, phone, address, user,cid,`startDate`,`dueDate`,`cubic`,`total`,`status`, DATEDIFF('$today',dueDate) as days_penalty, proof_filename FROM `payment_proof`
+     INNER JOIN bill ON payment_proof.bill_id = bill.bill_id
+     INNER JOIN consumer ON bill.cid = consumer.consumer_id 
+     WHERE  '$today' > dueDate AND status ='toConfirm' AND cid = '$id'";
+ 
+     $result = mysqli_query($conn, $sql_get_bill);
+ 
+     $bill_arr = array();
+ 
+     while($row = mysqli_fetch_assoc($result)){
+ 
+         $bill_arr [] = $row;
+ 
+     }
+ 
+     echo json_encode($bill_arr);
+ 
+ 
+ }
+
 else if($typeOfFunction == 'paid'){
 
     $id =  $_POST['id'];
@@ -74,6 +101,38 @@ else if($typeOfFunction == 'paid'){
     $result = mysqli_query($conn, $pay_bill);
 
     if($result){
+        echo 0;
+
+    }
+    else{
+        echo 1;
+    }
+
+
+}
+
+else if($typeOfFunction == 'paidOnline'){
+
+    $id =  $_POST['id'];
+
+    $pay_bill = "UPDATE bill SET status = 'paid', payment_type = 'Online' WHERE cid = '$id' AND status = 'toConfirm'";
+
+    $filename = $_FILES['receipt']['name'];
+    $tmp_filename = $_FILES['receipt']['tmp_name'];
+    $filename_proof = str_replace(" ", "", $filename);
+    $bid = $_POST['bid'];
+
+
+
+    $result = mysqli_query($conn, $pay_bill);
+
+    if($result){
+
+        $sql = "INSERT INTO `bill_receipt`( `bill_id`, `receipt_file`) VALUES ('$bid','$filename_proof')";
+
+        $tes = mysqli_query($conn, $sql);
+
+        move_uploaded_file($tmp_filename,"C:/xampp/htdocs/water_capstone/receiptbill/". $filename_proof);
         echo 0;
 
     }

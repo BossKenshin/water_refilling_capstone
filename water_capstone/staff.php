@@ -81,7 +81,7 @@
 
 
 <div class="container-fluid m-3">
-    <h1>Staffs</h1>
+    <h1 style="color:white;">Staffs</h1>
     <div class="container-fluid m-2 bg-white rounded" style="min-height: 80vh; max-height: fit-content;">
     <div class="dropdown p-3">
             <button class="btn btn-outline-secondary dropdown-toggle" id="btnopt" data-bs-toggle="dropdown"><i class="uil uil-cog icon"> </i>Options</button>

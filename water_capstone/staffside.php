@@ -16,7 +16,7 @@
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="staff.php" class="nav-link">
+              <a href="sdashboard.php" class="nav-link">
               <i class="uil uil-dashboard icon"></i>
 
                 <span class="link">Dashboard</span>

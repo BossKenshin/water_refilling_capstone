@@ -11,21 +11,52 @@
     <!-- --- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+
 
     <link rel="stylesheet" href="css/staff.css">
 
     <title>Consumers</title>
 </head>
-<body style="overflow:hidden;">
+<body style="overflow-x:hidden;">
 <?php include 'sidebar.php' ?>
 
-
+<template id="sales-template"> 
+<tr>
+                    <td id="month"></td>
+                    <td id="year"></td>
+                    <td id="cubic"></td>
+                    <td id="sales"></td>
+</tr>
+</template>
 
 <div class="container-fluid m-3">
-    <h1>Reports</h1>
-    <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
+    <h1 style="color:white;">Reports</h1>
+    <div class="container-fluid m-2 bg-white rounded" style="height:90vh;">
 
-            <!-- ari ibutang ang mga report bro -->
+          <table class="table p-3" id="reportTable" >
+            <div class="row mx-3 d-flex" style="width:800px;">
+                <input type="number" class="form-control" placeholder="Enter Year" id="yearinp"  maxlength="4" style="width: 200px;">
+                <button class="btn btn-primary mx-3" style="width: 200px;" id="bnt-filter" onclick="loadReport()">Get Sales</button>
+                <button class="btn btn-dark float-end" style="width: 100px;" data-toggle="tooltip" id="btn-export-table" onclick="html_table_to_excel('xlsx')" data-placement="left" title="Export Table"><i class="bi bi-printer-fill"></i></button>
+
+            </div>
+            <thead>
+            <tr>
+                    <td>Month</td>
+                    <td>Year</td>
+                    <td>Cubics Used</td>
+                    <td>Sales</td>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+          </table>
 
 
     </div>
@@ -33,6 +64,7 @@
 
 <script src="js/navi.js"></script>
 <script src="js/profileadmin.js"></script>
+<script src="js/reports.table.js"></script>
 
 </body>
 </html>

@@ -33,6 +33,12 @@
                 <span class="link">Billing History</span>
               </a>
             </li>
+            <li class="list">
+              <a href="consumerconcerns.php" class="nav-link">
+                <i class="uil uil-comment-alt-dots icon"></i>
+                <span class="link">Concerns</span>
+              </a>
+            </li>
           </ul>
 
         </div>

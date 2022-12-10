@@ -51,14 +51,13 @@ function setBill(user){
 
                 var json_bill = JSON.parse(data);
 
-                console.log(json_bill);
 
                     document.getElementById('start').innerHTML = json_bill[0].startDate;
                     document.getElementById('due').innerHTML = json_bill[0].dueDate;
                     document.getElementById('cubic').innerHTML = json_bill[0].cubic;
                     document.getElementById('amount').innerHTML = json_bill[0].total;
                    var dayss = json_bill[0].diff;
-                   var days;
+                                                                                                                                                                                                        var days;
                      if(dayss <= 0){
                         document.getElementById('days').innerHTML = '0';
                         days = 0;
@@ -132,8 +131,10 @@ imgin.onchange = evt => {
 
     var plen = $('#proof').get(0).files.length;
     var bid =  document.getElementById('submit-proof').getAttribute('data-billid');
+    var rowCount = $('#billTable tbody tr #start').val();
 
-    if(plen != 0 && bid != undefined || bid != null){
+    if(rowCount != ''){
+    if(plen != 0 && bid != undefined || bid != null ){
 
             var filename =  $('#proof').prop('files')[0];    //Fetch the file
 
@@ -180,10 +181,20 @@ imgin.onchange = evt => {
             text: "If error keeps showing please log in again"
           });  
     }
+  }
+  else{
+    Swal.fire({
+      icon: "error",
+      title: "Please scan your QR code for bill",
+      text: "If error keeps showing please log in again"
+    });  
+  }
+
 
     $('#paymentproof').modal('hide');
     document.getElementById('proof').value = '';
     blah.src ='';
+
 
 
   })

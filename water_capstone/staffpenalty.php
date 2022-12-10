@@ -102,7 +102,7 @@
     <div class="container-fluid m-3">
         <div class="d-flex justify-content-between">
             <div class="container">
-                <h1>Penalty</h1>
+                <h1 style="color:white;">Penalty</h1>
                 <input class="form-control w-25" type="text" id="search" placeholder="Search" style="height:40px;" oninput="filterConsumer()">
             </div>
             <div class="dropdown me-4">

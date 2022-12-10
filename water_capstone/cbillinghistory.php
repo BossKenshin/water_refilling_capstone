@@ -23,7 +23,7 @@
 
 <div class="container-fluid m-3">
     <div class="d-flex justify-content-between">
-    <h1>Billing History</h1>
+    <h1 style="color:white;">Billing History</h1>
         <div class="dropdown me-4">
         <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
@@ -36,7 +36,7 @@
 
     <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
     <div class="container text-center">
-    <table class="table">
+    <table class="table" id="historyTable">
         <thead>
             <tr>
                 <th>Date From</th>
@@ -46,12 +46,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>12/12/22</td>
-                <td>12/15/22</td>
-                <td>913 m³</td>
-                <td>₱ 5000</td>
-            </tr>
+           
         </tbody>
 
     </table>
@@ -107,9 +102,8 @@
 </div>
 
 
-<script src="js/penalty.js"></script>
 <script src="js/profileconsumer.js"></script>
-<script src="js/modals.js"></script>
+<script src="js/billinghistory.js"></script>
 </body>
 </html>
 

@@ -136,7 +136,7 @@
 <div class="container-fluid m-3" >
     <div class="d-flex justify-content-between">
     <div class="container">
-        <h1>Create Billings</h1>
+        <h1 style="color:white;">Create Billings</h1>
         <input class="form-control w-25" type="text" id="search" placeholder="Search name..." oninput="filterConsumer()" style="height:40px;">
     </div>
         <div class="dropdown me-4">

@@ -26,7 +26,7 @@
 
     <div class="container-fluid m-3">
         <div class="d-flex justify-content-between">
-            <h1>Billings</h1>
+            <h1 style="color:white;">Billings</h1>
             <div class="dropdown me-4">
                 <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
@@ -71,7 +71,7 @@
                                 <td id="amount"></td>
                                 <td id="days"></td>
                                 <td id="total"></td>
-                                </tr>
+                        </tr>
 
                         </tbody>
                     </table>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="center text-end">
                         
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentproof">Pay</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentproof">Pay bill</button>
                     </div>
 
                 </div>

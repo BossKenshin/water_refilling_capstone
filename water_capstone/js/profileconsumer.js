@@ -21,7 +21,10 @@ function setProfile(){
             var profiledata = JSON.parse(data);
 
             var ele = document.getElementById('profile-pic');
-            staffname = profiledata[0].user;
+            ele.dataset.user = profiledata[0].user;
+            
+            user = profiledata[0].user;
+            profile = profiledata[0].profile;
 
 
             // ele.setAttribute('src', './profile/'+profiledata[0].staff_pic)

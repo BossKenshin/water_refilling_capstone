@@ -58,9 +58,26 @@ else if($typeOfFunction == 'paybillonline'){
         echo 1;
     }
 
+}
+else if($typeOfFunction == 'history'){
 
 
+    $user = $_POST['user'];
 
+
+    $getbillhistory = "SELECT `startDate`,`dueDate`,`cubic`,`total` FROM `bill`
+    INNER JOIN consumer ON bill.cid = consumer.consumer_id 
+    WHERE user = '$user' AND status = 'paid' ORDER BY dueDate DESC";
+
+        $res = mysqli_query($conn, $getbillhistory);
+    
+        $arr = array();
+        
+        while($row = mysqli_fetch_assoc($res)){
+            $arr [] = $row;
+        }
+        
+        echo json_encode($arr);
 
 }
 

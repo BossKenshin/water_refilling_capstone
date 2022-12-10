@@ -96,7 +96,7 @@
 </template>
 
 <div class="container-fluid m-3">
-    <h1>Consumers</h1>
+    <h1 style="color:white;">Consumers</h1>
     <div class="container-fluid m-2 bg-white rounded" id="this" style="height:70vh; overflow-x:scroll;">
     <div class="dropdown p-3">
             <button class="btn btn-outline-secondary dropdown-toggle" id="btnopt" data-bs-toggle="dropdown"><i class="uil uil-cog icon"> </i>Options</button>

@@ -23,7 +23,7 @@
 
 <div class="container-fluid m-3">
     <div class="d-flex justify-content-between">
-    <h1>Dashboard</h1>
+    <h1 style="color:white;">Dashboard</h1>
         <div class="dropdown me-4">
         <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
@@ -35,13 +35,73 @@
     </div>
 
     <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
+            <h1 class="p-3">Welcome, Christian Rosales</h1>
+            <hr>
 
+            <div class="d-flex justify-content-between">
+                <div class="container-fluid ">
+                    <div class="container" id="nobra">
+                        <div class="d-flex">
+                            <div class="circle rounded"></div>
+                            <h5><label class="h1">1231</label> Total m³ used</h5>
+                        </div>
+                    </div>
+                    <div class="container" id="nobra">
+                        <div class="d-flex">
+                            <div class="circle rounded"></div>
+                            <h5><label class="h1">22</label> Pending Bills</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="container notifications pe-5" id="notifs" style="overflow-y: scroll; height:300px;">
+                    <h4 class="sticky-top bg-white">Notifications</h4>
+                    <ul>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                        <li>Pending Bills<hr></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
 
 
 
+    <style>
+    #nobra {
+        background-color: #0f62fe;
+        margin: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+        width: 300px;
+        color: white;
+    }
+
+    .circle {
+        margin-right: 10px;
+        max-height: 90%;
+        min-width: 50px;
+        background-color: white;
+    }
+    #notifs
+    {
+        min-height: 100%;
+    }
+    #notifs li
+    {
+        list-style: none;
+    }
+</style>
 
 
 

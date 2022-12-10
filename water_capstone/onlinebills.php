@@ -60,14 +60,34 @@
                     <label for="cname" class="form-label">Type of Payment</label>
                         <select class="form-select" id="payment" onchange="payment" disabled>
                             <option selected disabled value="">Open this select menu</option>
-                            <option value="1">Online Payment</option>
-                            <option value="2">Over the Counter</option>
+                            <option value="1" selected >Online Payment</option>
+                            <option value="2" >Over the Counter</option>
                         </select>
             </div>
+            <div class="row mb-3">
+                            <div class="col">
+                                <label for="cdays" class="form-label">Days</label>
+                                <input class="form-control" type="number" id="cdays" disabled>
+                            </div>
+                            <div class="col">
+                                <label for="cpenaltyvalue" class="form-label">Penalty</label>
+                                <input class="form-control" type="number" id="cpenaltyvalue" value="50" disabled>
+                            </div>
+                            <div class="col">
+                                <label for="ctotalpayment" class="form-label">Total Amount:</label>
+                                <input class="form-control" type="number" id="ctotalpayment"  disabled>
+                            </div>
+                        </div>
+                       
+
             <div class="text-center">
-                <a href="#" id="seeproof"><img src="img/nopicture.jpg" alt="" style="width:250px;"></a>
+                <a download="proof-payment.jpg" title="ImageName" id="seeproof">See Proof of payment</a>
             </div>
         </div>
+        <div class="row mb-3">
+                            <label for="receipt">Attach Receipt</label>
+                            <input type="file" id="receipt" class="form-control" accept=".pdf">
+                        </div>
         <div class="row mb-3">
         <button type="button" class="btn btn-secondary" id="genrec" onclick="rece()" >Generate Receipt</button>
         </div>
@@ -86,7 +106,7 @@
 <div class="container-fluid m-3" >
     <div class="d-flex justify-content-between">
     <div class="container">
-        <h1>Online Payments</h1>
+        <h1 style="color:white;">Online Payments</h1>
         <input class="form-control w-25" type="text" id="search" placeholder="Search name..." oninput="filterConsumer()" style="height:40px;">
     </div>
         <div class="dropdown me-4">
@@ -101,18 +121,17 @@
 
     <template id="consumer-row-template">
     <tr >
-                <td id="consumer-fullname1">Christian Rosales</td>
-                <td id="consumer-username1">Christian Rosales</td>
-                <td id="consumer-address1">Christian Rosales</td>
-                <td><button id="billing1-view"  type="button " class="btn " data-bs-toggle="modal" data-bs-target="#view" onclick="setBill(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"  ><i class="uil uil-eye icon"> View Bill</i></button></td>
-                <td><button id="billing1-create" type="button " class="btn" data-bs-toggle="modal" data-bs-target="#cbill" onclick="setCID(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"><i class="uil uil-receipt icon"> Create Bill</i></button></td>
+                <td id="fullname">Christian Rosales</td>
+                <td id="username">Christian Rosales</td>
+                <td id="address">Christian Rosales</td>
+                <td><button id="billing-view"  type="button " class="btn " data-bs-toggle="modal" data-bs-target="#view" onclick="setBill(this.getAttribute('data-id'),this.getAttribute('data-fullname'),this.getAttribute('data-address')  )"  ><i class="uil uil-eye icon"> View Bill</i></button></td>
             </tr>
 
     </template>
 
     <div class="container-fluid m-2 bg-white rounded" style="overflow-y: scroll; overflow-x:hidden; height: 65vh;">
     <div class="container text-center"  style="overflow-y: scroll; overflow-x:hidden; min-height: 400px; max-height:600px;">
-    <table class="table">
+    <table class="table" id="onlineTable">
         <thead>
             <tr>
                 <th>Consumer Name</th>
@@ -132,7 +151,7 @@
     </div>
 </div>
 
-<script src="js/billingstaff.js"></script>
+<script src="js/online.payments.js"></script>
 <script src="js/profilestaff.js"></script>
 
 
