@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2022 at 11:51 AM
+-- Generation Time: Dec 10, 2022 at 08:20 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -69,10 +69,12 @@ INSERT INTO `bill` (`bill_id`, `cid`, `startDate`, `dueDate`, `cubic`, `total`, 
 (5, 1, ' 2022-12-01', '2022-12-10', '23', '299.00', 'paid', 'Over the Counter', 'Kylie'),
 (7, 3, ' 2022-12-06', '2022-12-08', '23', '299.00', 'paid', 'Over the Counter', 'Kylie'),
 (10, 4, ' 2022-10-09', '2022-10-11', '34', '442.00', 'paid', 'Over the Counter', 'Kylie'),
-(11, 1, ' 2022-12-09', '2022-12-16', '43', '559.00', 'pending', 'none', 'Kylie'),
 (12, 3, ' 2022-11-02', '2022-11-03', '23', '299.00', 'pending', 'none', 'Kylie'),
 (13, 4, ' 2022-12-02', '2022-12-08', '67', '871.00', 'paid', 'Online', 'Kylie'),
-(14, 5, ' 2022-12-08', '2022-12-10', '26', '338.00', 'pending', 'none', 'staff1223');
+(14, 5, ' 2022-12-08', '2022-12-10', '26', '338.00', 'pending', 'none', 'staff1223'),
+(15, 1, ' 2022-12-01', '2022-12-07', '77', '1001.00', 'paid', 'Online', 'staff1223'),
+(16, 1, ' 2022-12-06', '2022-12-11', '56', '728.00', 'pending', 'none', 'staff1223'),
+(17, 6, ' 2022-09-11', '2022-09-21', '67', '871.00', 'pending', 'none', 'staff1223');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,8 @@ CREATE TABLE `bill_receipt` (
 --
 
 INSERT INTO `bill_receipt` (`receipt_id`, `bill_id`, `receipt_file`) VALUES
-(1, 13, 'receipt23.pdf');
+(1, 13, 'receipt23.pdf'),
+(2, 15, 'receipt.pdf');
 
 -- --------------------------------------------------------
 
@@ -111,8 +114,6 @@ CREATE TABLE `concern` (
 --
 
 INSERT INTO `concern` (`concern_id`, `cid`, `concern_text`, `concern_filename`) VALUES
-(1, 1, 'hi', NULL),
-(2, 1, 'asdf', NULL),
 (3, 1, '', NULL),
 (4, 1, 'adsfads', 'download.png');
 
@@ -139,10 +140,11 @@ CREATE TABLE `consumer` (
 --
 
 INSERT INTO `consumer` (`consumer_id`, `firstname`, `lastname`, `phone`, `address`, `user`, `pass`, `qrcode`, `profile`) VALUES
-(1, 'Kyle', 'Rosales', '09512412342', 'Siocon', 'dfdf', 'admin1', 'dfdfimgnewqr.png', '1239560.jpg'),
+(1, 'Kyle', 'Rosales', '09512412342', 'Siocon', 'dfdf', '123', 'dfdfnew.png', '1239560.jpg'),
 (3, 'Christian Lawrenced', 'Rosales', '9502693807', 'Purok Sambag', 'asdfadsf', 'asdf', 'asdfadsfdownload.png', 'Photo-3.jpeg'),
 (4, 'Jhonrel', 'Patino', '12321321321', 'Loverslane', 'adsf232af', 'admin1', 'adsf232afqr.png', '1149459.jpg'),
-(5, 'Jojo', 'Bizzare', '12321312312', 'Nailon', 'bizzare', 'jojo', 'bizzaredownload23.png', 'IMG_20210406_105901_883.jpg');
+(5, 'Jojo', 'Bizzare', '12321312312', 'Nailon', 'bizzare', 'jojo', 'bizzaredownload23.png', 'IMG_20210406_105901_883.jpg'),
+(6, 'asdf', 'asdf', '23214152151', 'Na waka', 'waka', 'waka', 'wakadfff.png', 'erd.JPG');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,9 @@ CREATE TABLE `payment_proof` (
 --
 
 INSERT INTO `payment_proof` (`proof_id`, `bill_id`, `proof_filename`) VALUES
-(4, 13, 'qr.png');
+(4, 13, 'qr.png'),
+(5, 11, 'crmc2.jpg'),
+(6, 15, 'crmc2.jpg');
 
 -- --------------------------------------------------------
 
@@ -254,31 +258,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `bill_receipt`
 --
 ALTER TABLE `bill_receipt`
-  MODIFY `receipt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `receipt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `concern`
 --
 ALTER TABLE `concern`
-  MODIFY `concern_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `concern_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `consumer`
 --
 ALTER TABLE `consumer`
-  MODIFY `consumer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `consumer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment_proof`
 --
 ALTER TABLE `payment_proof`
-  MODIFY `proof_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `proof_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `staff`
