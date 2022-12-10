@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 08:59 PM
+-- Generation Time: Dec 10, 2022 at 11:51 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -31,8 +31,15 @@ CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `admin_username` varchar(50) NOT NULL,
   `admin_password` varchar(50) NOT NULL,
-  `admin_pic` varchar(255) NOT NULL
+  `admin_pic` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_username`, `admin_password`, `admin_pic`) VALUES
+(1, 'admin1', 'admin1', '');
 
 -- --------------------------------------------------------
 
@@ -59,8 +66,13 @@ CREATE TABLE `bill` (
 INSERT INTO `bill` (`bill_id`, `cid`, `startDate`, `dueDate`, `cubic`, `total`, `status`, `payment_type`, `staff`) VALUES
 (2, 3, ' 2022-12-13', '2022-12-29', '12.42', '161.46', 'paid', 'Over the Counter', 'Kylie'),
 (4, 1, ' 2022-12-09', '2022-12-16', '23', '299.00', 'paid', 'Over the Counter', 'Kylie'),
-(5, 1, ' 2022-12-09', '2022-12-09', '23', '299.00', 'pending', 'none', 'Kylie'),
-(7, 3, ' 2022-12-16', '2022-12-23', '23', '299.00', 'pending', 'none', 'Kylie');
+(5, 1, ' 2022-12-01', '2022-12-10', '23', '299.00', 'paid', 'Over the Counter', 'Kylie'),
+(7, 3, ' 2022-12-06', '2022-12-08', '23', '299.00', 'paid', 'Over the Counter', 'Kylie'),
+(10, 4, ' 2022-10-09', '2022-10-11', '34', '442.00', 'paid', 'Over the Counter', 'Kylie'),
+(11, 1, ' 2022-12-09', '2022-12-16', '43', '559.00', 'pending', 'none', 'Kylie'),
+(12, 3, ' 2022-11-02', '2022-11-03', '23', '299.00', 'pending', 'none', 'Kylie'),
+(13, 4, ' 2022-12-02', '2022-12-08', '67', '871.00', 'paid', 'Online', 'Kylie'),
+(14, 5, ' 2022-12-08', '2022-12-10', '26', '338.00', 'pending', 'none', 'staff1223');
 
 -- --------------------------------------------------------
 
@@ -74,6 +86,13 @@ CREATE TABLE `bill_receipt` (
   `receipt_file` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bill_receipt`
+--
+
+INSERT INTO `bill_receipt` (`receipt_id`, `bill_id`, `receipt_file`) VALUES
+(1, 13, 'receipt23.pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -84,8 +103,18 @@ CREATE TABLE `concern` (
   `concern_id` int(11) NOT NULL,
   `cid` int(11) NOT NULL,
   `concern_text` varchar(255) NOT NULL,
-  `concern_filename` varchar(255) NOT NULL
+  `concern_filename` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `concern`
+--
+
+INSERT INTO `concern` (`concern_id`, `cid`, `concern_text`, `concern_filename`) VALUES
+(1, 1, 'hi', NULL),
+(2, 1, 'asdf', NULL),
+(3, 1, '', NULL),
+(4, 1, 'adsfads', 'download.png');
 
 -- --------------------------------------------------------
 
@@ -111,7 +140,9 @@ CREATE TABLE `consumer` (
 
 INSERT INTO `consumer` (`consumer_id`, `firstname`, `lastname`, `phone`, `address`, `user`, `pass`, `qrcode`, `profile`) VALUES
 (1, 'Kyle', 'Rosales', '09512412342', 'Siocon', 'dfdf', 'admin1', 'dfdfimgnewqr.png', '1239560.jpg'),
-(3, 'Christian Lawrenced', 'Rosales', '9502693807', 'Purok Sambag', 'asdfadsf', 'asdf', 'asdfadsfdownload.png', 'Photo-3.jpeg');
+(3, 'Christian Lawrenced', 'Rosales', '9502693807', 'Purok Sambag', 'asdfadsf', 'asdf', 'asdfadsfdownload.png', 'Photo-3.jpeg'),
+(4, 'Jhonrel', 'Patino', '12321321321', 'Loverslane', 'adsf232af', 'admin1', 'adsf232afqr.png', '1149459.jpg'),
+(5, 'Jojo', 'Bizzare', '12321312312', 'Nailon', 'bizzare', 'jojo', 'bizzaredownload23.png', 'IMG_20210406_105901_883.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,6 +155,13 @@ CREATE TABLE `payment_proof` (
   `bill_id` int(11) NOT NULL,
   `proof_filename` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment_proof`
+--
+
+INSERT INTO `payment_proof` (`proof_id`, `bill_id`, `proof_filename`) VALUES
+(4, 13, 'qr.png');
 
 -- --------------------------------------------------------
 
@@ -176,6 +214,12 @@ ALTER TABLE `bill_receipt`
   ADD PRIMARY KEY (`receipt_id`);
 
 --
+-- Indexes for table `concern`
+--
+ALTER TABLE `concern`
+  ADD PRIMARY KEY (`concern_id`);
+
+--
 -- Indexes for table `consumer`
 --
 ALTER TABLE `consumer`
@@ -204,31 +248,37 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `bill_receipt`
 --
 ALTER TABLE `bill_receipt`
-  MODIFY `receipt_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `receipt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `concern`
+--
+ALTER TABLE `concern`
+  MODIFY `concern_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `consumer`
 --
 ALTER TABLE `consumer`
-  MODIFY `consumer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `consumer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `payment_proof`
 --
 ALTER TABLE `payment_proof`
-  MODIFY `proof_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `proof_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `staff`
