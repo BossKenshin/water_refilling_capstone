@@ -37,6 +37,8 @@ function onScanFailure(error) {
 }
 
 
+
+
 function setBill(user){
 
     $.ajax({

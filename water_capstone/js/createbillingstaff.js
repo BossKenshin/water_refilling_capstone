@@ -1,6 +1,36 @@
 
 
 loadConsumer();
+fetchCubic();
+
+
+var cb;
+
+
+function fetchCubic() {
+
+
+  $(document).ready(function() {
+      $.ajax({
+          url: "./sql/admin.cubic.php",
+          dataType: 'script',
+          type: "GET",
+          data: {
+              functionType: 'fetch'
+          },
+          success: function(data) {
+
+              cb = data;
+
+
+          }
+
+      })
+
+  });
+
+
+}
 
 function loadConsumer(){    
     $(document).ready(function() {
@@ -137,7 +167,7 @@ function getotal(){
 
  value = parseFloat(value);
 
-    var total = (13 * value).toFixed(2);
+    var total = (cb * value).toFixed(2);
 
 
 

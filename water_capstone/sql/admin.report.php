@@ -3,8 +3,10 @@ include '/xampp/htdocs/water_capstone/dbconnect.php';
 
 
 $y = $_GET['year'];
+$m = $_GET['month'];
 
-$report = "SELECT MONTH(`dueDate`) as month,
+
+$report = "SELECT CONCAT(consumer.firstname,' ',consumer.lastname) AS consumer,
 (CASE
  
 WHEN MONTH(`dueDate`) = 1 THEN 'JANUARY'
@@ -20,9 +22,10 @@ WHEN MONTH(`dueDate`) = 10 THEN 'OCTOBER'
 WHEN MONTH(`dueDate`) = 11 THEN 'NOVEMBER'
 WHEN MONTH(`dueDate`) = 12 THEN 'DECEMBER'
  END
-)as month_title,
-YEAR(`dueDate`) as year, SUM(total) as sales, SUM(cubic) as cubic FROM bill WHERE YEAR(dueDate) = '$y'
- GROUP BY MONTH(dueDate) ORDER BY MONTH(dueDate) AND YEAR(dueDate)";
+)as month_title,`paidDate`,`cubic`,`total`,`payment_type`
+FROM `bill` 
+INNER JOIN consumer ON bill.cid = consumer.consumer_id
+WHERE YEAR(dueDate) = '$y' AND MONTH(dueDate) = '$m';";
 
  $res = mysqli_query($conn,$report);
 

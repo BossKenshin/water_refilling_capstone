@@ -4,6 +4,7 @@ loadReport();
 function loadReport(){
 
  var ele =document.getElementById('yearinp').value;
+ var mo = document.getElementById('month-select').value;
 
 if(ele == ''){
 
@@ -20,12 +21,14 @@ fil = document.getElementById('yearinp').value;
         url: "./sql/admin.report.php",
         type: "GET",
         data: {
-          year: fil
+          year: fil,
+          month: mo
         },
         success: function (data) {
 
             var json = JSON.parse(data);
 
+            
             const template = document.querySelector("#sales-template");
 
             const parent = document.querySelector("#reportTable tbody");
@@ -37,15 +40,12 @@ fil = document.getElementById('yearinp').value;
               let clone = template.content.cloneNode(true);
     
               //clone.querySelector("#cols .branchname").innerHTML = 'Staff';
-              clone.querySelector("#month").innerHTML = json[i].month_title;
-              clone.querySelector("#year").innerHTML = json[i].year;
-              clone.querySelector("#sales").innerHTML = json[i].sales;
+              clone.querySelector("#consumer").innerHTML = json[i].consumer;
+              clone.querySelector("#paid").innerHTML = json[i].paidDate;
+              clone.querySelector("#cubic").innerHTML = json[i].cubic;
+              clone.querySelector("#total").innerHTML = json[i].total;
+              clone.querySelector("#pay-type").innerHTML = json[i].payment_type;
 
-              var c = parseFloat(json[i].cubic);
-
-            clone.querySelector("#cubic").innerHTML = c.toFixed(2);
-
-              
               parent.append(clone);
             }
 

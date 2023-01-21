@@ -25,10 +25,12 @@
 
 <template id="sales-template"> 
 <tr>
-                    <td id="month"></td>
-                    <td id="year"></td>
+                    <td id="consumer"></td>
+                    <td id="paid"></td>
                     <td id="cubic"></td>
-                    <td id="sales"></td>
+                    <td id="total"></td>
+                    <td id="pay-type"></td>
+
 </tr>
 </template>
 
@@ -37,18 +39,35 @@
     <div class="container-fluid m-2 bg-white rounded" style="height:90vh;">
 
           <table class="table p-3" id="reportTable" >
-            <div class="row mx-3 d-flex" style="width:800px;">
+            <div class="row mx-3 d-flex p-2" style="width:800px;">
+
                 <input type="number" class="form-control" placeholder="Enter Year" id="yearinp"  maxlength="4" style="width: 200px;">
+                <select id="month-select" class="form-select w-25">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+
+                </select>
                 <button class="btn btn-primary mx-3" style="width: 200px;" id="bnt-filter" onclick="loadReport()">Get Sales</button>
                 <button class="btn btn-dark float-end" style="width: 100px;" data-toggle="tooltip" id="btn-export-table" onclick="html_table_to_excel('xlsx')" data-placement="left" title="Export Table"><i class="bi bi-printer-fill"></i></button>
-
             </div>
             <thead>
             <tr>
-                    <td>Month</td>
-                    <td>Year</td>
+                    <td>Consumer</td>
+                    <td>Paid Date</td>
                     <td>Cubics Used</td>
-                    <td>Sales</td>
+                    <td>Total</td>
+                    <td>Type of Payment</td>
+
 
 
                 </tr>

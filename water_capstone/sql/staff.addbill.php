@@ -95,8 +95,10 @@ else if($typeOfFunction == 'paid'){
 
     $id =  $_POST['id'];
     $payment = $_POST['paymentType'];
+    $today = date('Y-m-d');
 
-    $pay_bill = "UPDATE bill SET status = 'paid', payment_type = '$payment' WHERE cid = '$id' AND status = 'pending'";
+
+    $pay_bill = "UPDATE bill SET status = 'paid', payment_type = '$payment', paidDate = '$today' WHERE cid = '$id' AND status = 'pending'";
 
     $result = mysqli_query($conn, $pay_bill);
 
@@ -114,8 +116,10 @@ else if($typeOfFunction == 'paid'){
 else if($typeOfFunction == 'paidOnline'){
 
     $id =  $_POST['id'];
+    $today = date('Y-m-d');
 
-    $pay_bill = "UPDATE bill SET status = 'paid', payment_type = 'Online' WHERE cid = '$id' AND status = 'toConfirm'";
+
+    $pay_bill = "UPDATE bill SET status = 'paid', payment_type = 'Online', paidDate = '$today' WHERE cid = '$id' AND status = 'toConfirm'";
 
     $filename = $_FILES['receipt']['name'];
     $tmp_filename = $_FILES['receipt']['tmp_name'];
