@@ -15,24 +15,33 @@
     <title>Consumer| Billing History</title>
 </head>
 <body style="overflow:hidden;">
-<?php include 'consumerside.php' ?>
 
     
-   
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+<div class="row" style="height: inherit;">
+    <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
 
 
-<div class="container-fluid m-3">
-    <div class="d-flex justify-content-between">
-    <h1 style="color:white;">Billing History</h1>
-        <div class="dropdown me-4">
-        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
-        </a>
-            <ul class="dropdown-menu">
-              <li><button class="btn dropdown-item" id="alogout">Log Out</button></li>
-            </ul>
-        </div>
+    <p class="h4 mt-4 text-center" style="text-align:justify;">
+    OWC&SS
+    </p>
+
+    <hr>
+
+    <?php  include './consumerside.php' ?>
     </div>
+    <div class="col-10">
+
+        <div class="row pt-4 d-flex" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+        <p class="h4">Your Billing History</p>  
+    
+    </div>
+
+
+
+
+
 
     <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
     <div class="container text-center">
@@ -102,6 +111,14 @@
     </div>
     </div>
 </div>
+
+
+
+    </div>
+
+
+</div>
+   
 
 
 <script src="js/profileconsumer.js"></script>

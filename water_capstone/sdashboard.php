@@ -17,49 +17,49 @@
 </head>
 
 <body style="overflow:hidden;">
-    <?php include 'staffside.php' ?>
 
 
 
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+    <div class="row" style="height: inherit;">
+        <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
 
 
-    <div class="container-fluid m-3">
-        <div class="d-flex justify-content-between">
-            <h1 style="color:white;">Staff Dashboard</h1>
-            <div class="dropdown me-4">
-                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
-        </a>
-            <ul class="dropdown-menu">
-              <li><button class="btn dropdown-item" id="alogout">Log Out</button></li>
-            </ul>
-            </div>
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+        OWC&SS
+        </p>
+
+        <hr>
+    
+        <?php  include './staffside.php' ?>
         </div>
+        <div class="col-10">
 
-        <div class="container-fluid m-2 bg-white rounded" style="height:70vh;">
-            <h1 class="p-3">Welcome,</h1>
-            <hr>
-            <div class="container-fluid d-flex justify-content-center">
-                <div class="container col-4" id="nobra">
-                    <div class="d-flex">
-                        <div class="circle rounded"></div>
-                        <h5><label class="h1" id="consumernum">22836</label>Consumers</h5>
-                    </div>
-                </div>
-                <div class="container col-4" id="nobra">
-                    <div class="d-flex">
-                        <div class="circle rounded"></div>
-                        <h5><label class="h1" id="penaltynum">22836</label>Penalty Accounts</h5>
-                    </div>
-                </div>
-                <div class="container col-4" id="nobra">
-                    <div class="d-flex">
-                        <div class="circle rounded"></div>
-                        <h5><label class="h1"id="inactivenum">22836</label>Inactive Accounts</h5>
-                    </div>
-                </div>
+            <div class="row pt-4 d-flex" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <p class="h4">Dashboard</p>  
+        
+        
             </div>
+
+            <div class="row mt-4 d-flex p-4 justify-content-evenly" style="height: 200px;">
+
+
+            <div class="col-3 bg-success shadow">  <h5><label class="h1" id="consumernum">1231</label> No. of Consumer(s)</h5></div>
+            <div class="col-3 bg-warning shadow"><h5><label class="h1" id="penaltynum">22</label> No. of Penalty Account(s)</h5></div>
+            <div class="col-3 bg-info shadow"><h5><label class="h1" id="inactivenum">343</label> No. of Inavtive Account(s)</h5></div>
+    
+
+
+            </div>
+
+
         </div>
+    </div>
+
+
+</div>
+
 
 
 

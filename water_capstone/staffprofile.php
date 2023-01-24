@@ -17,13 +17,32 @@
     <title>Staff</title>
 </head>
 <body style="overflow-x:hidden;">
-<?php include 'sidebar.php' ?>
 
 
 
-<div class="container-fluid m-3">
-    <h1>Staffs</h1>
-    <div class="container-fluid m-2 bg-white rounded" id="this" style="overflow-x:scroll;">
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+<div class="row" style="height: inherit;">
+    <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
+
+
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+            OWC&SS
+        </p>
+
+        <hr>
+
+        <?php include './sidebar.php' ?>
+    </div>
+    <div class="col-10">
+
+        <div class="row pt-4" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <p class="h4">Staff Profile</p>
+        </div>
+
+            
+<div class="container-fluid mt-4">
+    <div class="container-fluid bg-white rounded" id="this" style="overflow-x:scroll;">
 <div class="container-fluid m-3 row text-center">
     <div class="form-control mb-4">
         <div class="container">
@@ -70,8 +89,14 @@
         </div>
             </div>
 
-    <!-- hangtud ari -->
+
+    </div>
 </div>
+
+
+</div>
+
+
 
 <script src="js/view.staff.js"></script>
 <script src="js/updatestaff.js"></script>

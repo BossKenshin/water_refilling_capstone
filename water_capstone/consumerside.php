@@ -2,19 +2,7 @@
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <nav id="sidebar">
-      <div class="logo">
-        <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Online Water Consumer and Services System</span>
-      </div>
-      <div class="sidebar">
-        <div class="logo">
-          <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">OWC&SS</span>
-        </div>
-
-        <div class="sidebar-content">
-          <ul class="lists">
+    <ul class="lists">
             <li class="list">
               <a href="cdashboard.php" class="nav-link">
               <i class="uil uil-dashboard icon"></i>
@@ -41,31 +29,9 @@
             </li>
           </ul>
 
-        </div>
-</div>
-</nav>
-
-
-
-
-
-
-
-
-
-
-<script>
-      const navBar = document.querySelector("nav"),
-        menuBtns = document.querySelectorAll(".menu-icon"),
-        overlay = document.querySelector(".overlay");
-
-      menuBtns.forEach((menuBtn) => {
-        menuBtn.addEventListener("click", () => {
-          navBar.classList.toggle("open");
-        });
-      });
-
-      overlay.addEventListener("click", () => {
-        navBar.classList.remove("open");
-      });
-</script>
+          <div class="bottom-cotent">
+              <button class="btn nav-link" id="alogout">
+              <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
+                <span class="link" >Logout</span>
+              </button>
+          </div>

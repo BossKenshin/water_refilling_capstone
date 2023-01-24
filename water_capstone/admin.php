@@ -18,42 +18,36 @@
 </head>
 
 <body style="overflow-x:hidden;">
-    <?php include 'sidebar.php' ?>
+
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+    <div class="row" style="height: inherit;">
+        <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
 
 
-    <div class="container-fluid m-3">
-        <h1 style="color:white;">Dashboard</h1>
-        <div class="container-fluid m-2 bg-white rounded" style="min-height: 75vh; max-height:fit-content;">
-            <h1 class="p-3">Welcome, Admin</h1>
-            <hr>
-            <div class="container-fluid d-flex justify-content-evenly">
-                <div class="container col-4" id="nobra">
-                    <div class="d-flex">
-                        <div class="circle rounded"></div>
-                        <h5><label class="h1" id="staffnum">1231</label> No. of Staff</h5>
-                    </div>
-                </div>
-                <div class="container col-4" id="nobra">
-                    <div class="d-flex">
-                        <div class="circle rounded"></div>
-                        <h5><label class="h1" id="consumernum">22</label> No. of Consumers</h5>
-                    </div>
-                </div>
-                <div class="container col-4" id="nobra">
-                    <div class="d-flex">
-                        <div class="circle rounded"></div>
-                        <h5><label class="h1" id="concernum">343</label> Concern(s)</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid d-flex justify-content-start">
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+        OWC&SS
+        </p>
 
-                <div class="col-4 p-3 cu" id="nobra">
-                    <div class="container d-flex justify-content-between mb-2">
+        <hr>
+    
+        <?php  include './sidebar.php' ?>
+        </div>
+        <div class="col-10">
+
+            <div class="row pt-4" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;"><p class="h4">Dashboard</p> </div>
+
+            <div class="row mt-4 d-flex p-4 justify-content-evenly" style="height: 400px;">
+
+
+            <div class="col-3 bg-success shadow">  <h5><label class="h1" id="staffnum">1231</label> No. of Staff</h5></div>
+            <div class="col-3 bg-warning shadow"><h5><label class="h1" id="consumernum">22</label> No. of Consumers</h5></div>
+            <div class="col-3 bg-info shadow"><h5><label class="h1" id="concernum">343</label> Concern(s)</h5></div>
+            <div class="col-5 shadow bg-primary mt-4" style="height: 200px;">
+            <div class="container d-flex justify-content-between mb-2">
                         <p class="h2">Cubics</p>
                         <button class="btn" id="edit-cubic" onclick="showhide()"><i class="bi bi-pencil-square text-light"></i></button>
                     </div>
-
 
                     <input type="number" name="" id="cubics" class="form-control" disabled>
 
@@ -62,10 +56,19 @@
                     <button class="btn btn-danger text-light" id="cancel-cubic" onclick="showhide()">Cancel</i></button>
                 </div>
 
+            
             </div>
+
+
+            </div>
+
+
         </div>
     </div>
-    </div>
+
+
+</div>
+
 
 
 

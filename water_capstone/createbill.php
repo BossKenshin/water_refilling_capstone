@@ -126,30 +126,7 @@
     </div>
 </div>
 
-
-<?php include 'staffside.php' ?>
-
-    
-   
-
-
-<div class="container-fluid m-3" >
-    <div class="d-flex justify-content-between">
-    <div class="container">
-        <h1 style="color:white;">Create Billings</h1>
-        <input class="form-control w-25" type="text" id="search" placeholder="Search name..." oninput="filterConsumer()" style="height:40px;">
-    </div>
-        <div class="dropdown me-4">
-        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img id="profile-pic" alt="" style="height: 50px; width:50px; border-radius:50%; border:2px solid #98d4ff;">
-        </a>
-            <ul class="dropdown-menu">
-              <li><button class="btn dropdown-item" id="alogout">Log Out</button></li>
-            </ul>
-        </div>
-    </div>
-
-    <template id="consumer-row-template">
+<template id="consumer-row-template">
     <tr >
                 <td id="consumer-fullname1">Christian Rosales</td>
                 <td id="consumer-username1">Christian Rosales</td>
@@ -159,7 +136,33 @@
 
     </template>
 
-    <div class="container-fluid m-2 bg-white rounded" style="overflow-y: scroll; overflow-x:hidden; height: 65vh;">
+
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+    <div class="row" style="height: inherit;">
+        <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
+
+
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+        OWC&SS
+        </p>
+
+        <hr>
+    
+        <?php  include './staffside.php' ?>
+        </div>
+        <div class="col-10">
+
+            <div class="row pt-4 d-flex" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <p class="h4">Create Billings</p>  
+        
+        
+            </div>
+
+            <div class="row">
+            <input class="form-control w-25 m-3" type="text" id="search" placeholder="Search name..." oninput="filterConsumer()" style="height:40px;">
+
+            <div class="container-fluid m-2 bg-white rounded" style="overflow-y: scroll; overflow-x:hidden; height: 65vh;">
     <div class="container text-center" >
     <table class="table" id="consumerBillingTable">
         <thead>
@@ -180,6 +183,18 @@
     </div>
 
 </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+    
+   
+
 
 <script src="js/createbillingstaff.js"></script>
 <script src="js/profilestaff.js"></script>

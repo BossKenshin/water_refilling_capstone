@@ -81,7 +81,6 @@
 </div>
 
 
-<?php include 'sidebar.php' ?>
 
 <template id="consumer-row-template">
 
@@ -95,16 +94,35 @@
 
 </template>
 
-<div class="container-fluid m-3">
-    <h1 style="color:white;">Consumers</h1>
-    <div class="container-fluid m-2 bg-white rounded" id="this" style="height:70vh; overflow-x:scroll;">
-    <div class="dropdown p-3">
-            <button class="btn btn-outline-secondary dropdown-toggle" id="btnopt" data-bs-toggle="dropdown"><i class="uil uil-cog icon"> </i>Options</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addemp">Add Consumer</a></li>
-            </ul>
+
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+<div class="row" style="height: inherit;">
+    <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
+
+
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+            OWC&SS
+        </p>
+
+        <hr>
+
+        <?php include './sidebar.php' ?>
     </div>
-<div class="container-fluid m-3 row text-center">
+    <div class="col-10">
+
+        <div class="row pt-4" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <p class="h4">Consumer</p>
+        </div>
+
+        <div class="row mt-4 d-flex p-4 justify-content-start" style="min-height:400px; max-height: fit-content;">
+
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addemp" style="width: 150px;">Add Consumer</button>
+
+            <div class="container border mt-2" id="stafflist" style="min-height: inherit; max-height:fit-content">
+
+
+            <div class="container-fluid m-3 row text-center">
     <table class="table" id="consumer-table">
         <thead>
             <tr>
@@ -121,6 +139,19 @@
         </tbody>
 
     </table>
+</div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
 </div>
 
 

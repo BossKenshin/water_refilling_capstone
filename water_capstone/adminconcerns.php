@@ -18,24 +18,43 @@
 </head>
 
 <body style="overflow:hidden;">
-    <?php include 'sidebar.php' ?>
 
-
-    <div class="container-fluid m-3">
-        <div class="d-flex justify-content-between">
-            <h1  style="color:white;">Concerns</h1>
-        </div>
-
-        <div class="container-fluid m-2 bg-white rounded d-flex justify-content-center" style="height:70vh;">
-            <div class="container text-center">
-                <template id="consumer-concern-template">
+<template id="consumer-concern-template">
                     <tr>
                     <td id="cnamee">Christian Rosales</td>
                     <td> <button class="btn btn-secondary" id="viewconcernme" onclick="viewConcern(this.getAttribute('data-id'))">View Message</button></td>
                
                     </tr>
                </template>
-                <table class="table" id="concernTable">
+
+
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
+
+<div class="row" style="height: inherit;">
+    <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
+
+
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+            OWC&SS
+        </p>
+
+        <hr>
+
+        <?php include './sidebar.php' ?>
+    </div>
+    <div class="col-10">
+
+        <div class="row pt-4" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <p class="h4">Staff</p>
+        </div>
+
+        <div class="row mt-4 d-flex p-4 justify-content-start" style="min-height:400px; max-height: fit-content;">
+
+
+            <div class="container border mt-2" id="stafflist" style="min-height: inherit; max-height:fit-content">
+
+
+            <table class="table" id="concernTable">
                     <thead>
                         <th>Consumer Name</th>
                         <th></th>
@@ -44,8 +63,19 @@
                         
                     </tbody>
                 </table>
+
             </div>
+
+
         </div>
+
+
+    </div>
+</div>
+
+
+</div>
+       
 
 
         <div class="modal fade" id="viewconcern">

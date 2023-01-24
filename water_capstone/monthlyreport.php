@@ -21,7 +21,6 @@
     <title>Consumers</title>
 </head>
 <body style="overflow-x:hidden;">
-<?php include 'sidebar.php' ?>
 
 <template id="sales-template"> 
 <tr>
@@ -34,32 +33,56 @@
 </tr>
 </template>
 
-<div class="container-fluid m-3">
-    <h1 style="color:white;">Reports</h1>
-    <div class="container-fluid m-2 bg-white rounded" style="height:90vh;">
 
-          <table class="table p-3" id="reportTable" >
-            <div class="row mx-3 d-flex p-2" style="width:800px;">
 
-                <input type="number" class="form-control" placeholder="Enter Year" id="yearinp"  maxlength="4" style="width: 200px;">
-                <select id="month-select" class="form-select w-25">
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
+<div class="container-fluid " id="whole-container" style="height: 120vh; max-height: fit-content;">
 
-                </select>
-                <button class="btn btn-primary mx-3" style="width: 200px;" id="bnt-filter" onclick="loadReport()">Get Sales</button>
-                <button class="btn btn-dark float-end" style="width: 100px;" data-toggle="tooltip" id="btn-export-table" onclick="html_table_to_excel('xlsx')" data-placement="left" title="Export Table"><i class="bi bi-printer-fill"></i></button>
-            </div>
+<div class="row" style="height: inherit;">
+    <div class="col-2 shadow" style="position: sticky; top:0px; height: 100vh;background-color: rgb(55, 55, 160); color: whitesmoke;">
+
+
+        <p class="h4 mt-4 text-center" style="text-align:justify;">
+            OWC&SS
+        </p>
+
+        <hr>
+
+        <?php include './sidebar.php' ?>
+    </div>
+    <div class="col-10">
+
+        <div class="row pt-4" style="height: 72px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <p class="h4">Monthly Reports</p>
+        </div>
+
+        <div class="row mt-4 d-flex p-4 justify-content-start" style="min-height:400px; max-height: fit-content;">
+
+
+        <div class="row mx-3 d-flex" style="width:100%; height: 40px;">
+
+<input type="number" class="form-control" placeholder="Enter Year" id="yearinp"  maxlength="4" style="width: 200px;">
+<select id="month-select" class="form-select w-25">
+    <option value="1">January</option>
+    <option value="2">February</option>
+    <option value="3">March</option>
+    <option value="4">April</option>
+    <option value="5">May</option>
+    <option value="6">June</option>
+    <option value="7">July</option>
+    <option value="8">August</option>
+    <option value="9">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+
+</select>
+<button class="btn btn-primary mx-3" style="width: 200px;" id="bnt-filter" onclick="loadReport()">Get Sales</button>
+<button class="btn btn-dark float-end" style="width: 100px;" data-toggle="tooltip" id="btn-export-table" onclick="html_table_to_excel('xlsx')" data-placement="left" title="Export Table"><i class="bi bi-printer-fill"></i></button>
+</div>
+
+
+        <table class="table border shadow" id="reportTable" >
+        
             <thead>
             <tr>
                     <td>Consumer</td>
@@ -76,9 +99,16 @@
                 
             </tbody>
           </table>
+         
+
+        </div>
 
 
     </div>
+</div>
+
+
+</div>
 
 
 <script src="js/navi.js"></script>

@@ -2,19 +2,8 @@
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <nav>
-      <div class="logo">
-        <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Online Water Consumer and Services System</span>
-      </div>
-      <div class="sidebar">
-        <div class="logo">
-          <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">OWC&SS</span>
-        </div>
-
-        <div class="sidebar-content">
-          <ul class="lists">
+   
+    <ul class="lists">
           <li class="list">
               <a href="admin.php" class="nav-link">
                 <i class="uil uil-dashboard icon"></i>
@@ -47,20 +36,11 @@
             </li>
           </ul>
           <div class="bottom-cotent">
-            <li class="list">
               <button class="btn nav-link" id="alogout">
                 <i class="bx bx-log-out icon"></i>
                 <span class="link" >Logout</span>
               </button>
-            </li>
           </div>
-        </div>
-</div>
-</nav>
-
-
-
-
 
 
 
